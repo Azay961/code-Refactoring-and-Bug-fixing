@@ -3,10 +3,11 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 notes = []
-@app.route('/', methods=["POST"])
+@app.route('/', methods=["POST","GET"])
 def index():
-    note = request.args.get("note")
-    notes.append(note)
+    note = request.form.get("note")
+    if note is not None and note.strip():
+        notes.append(note)
     return render_template("home.html", notes=notes)
 
 

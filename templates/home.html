@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    <form action="" method="post">
         <input type="text" name="note" placeholder="Enter a note">
-        <button>Add Note</button>
+        <button type="submit">Add Note</button>
     </form>
 
     <ul>
-    {% for note in notes%}
+    {% for note in notes if note is not none%}
         <li>{{ note }}</li>
     {% endfor %}
     </ul>
